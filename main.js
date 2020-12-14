@@ -10,8 +10,6 @@ d3.dsv(',','data.csv',function(d){
         var svg = d3.select("#dataViz"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
-        svg.attr("viewBox", "10 10 " + 800 + " " +450)
-            .attr("preserveAspectRatio", "xMinYMin");
 
         // geoMercator projection
         var projection = d3.geoMercator()
@@ -98,9 +96,9 @@ d3.dsv(',','data.csv',function(d){
 
                 d3.select(".totalCases")
                     .text("As of 12/6/2020");
-                });
+            });
 
-         // Add the labels
+        // Add the labels
         svg.append("g")
             .selectAll("labels")
             .data(states.features)
