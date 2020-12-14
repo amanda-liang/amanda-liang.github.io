@@ -10,6 +10,8 @@ d3.dsv(',','data.csv',function(d){
         var svg = d3.select("#dataViz"),
             width = +svg.attr("width"),
             height = +svg.attr("height");
+        svg.attr("viewBox", "10 10 " + 800 + " " +450)
+            .attr("preserveAspectRatio", "xMinYMin");
 
         // geoMercator projection
         var projection = d3.geoMercator()
