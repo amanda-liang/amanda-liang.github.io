@@ -16,15 +16,10 @@
          stroke-width: 1px;
       }
       .details {
+         margin-left: 40px;
          top: 0px;
-         left: 20px;
          opacity: 0.5;
-         position: absolute;
          font-size: 25px;
-         width: 85vw;
-      }
-      p{
-         text-align: center;
       }
    </style>
 </head>
@@ -33,9 +28,8 @@
       <p class="state">Covid-19 Total Cases Per State</p>
       <p class="totalCases">As of 12/6/2020</p>
    </div>
-<!--   <script src="https://d3js.org/d3.v6.min.js"></script>-->
+   <svg id="dataViz" width="800" height="450"></svg>
    <script src="https://d3js.org/d3.v5.min.js"></script>
-<!--   <script src="https://d3js.org/d3.v4.js"></script>-->
    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
    <script src="main.js"></script>
