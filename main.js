@@ -6,22 +6,15 @@ d3.dsv(',','data.csv',function(d){
 }).then(function(data) {
     d3.json("us_states_hexgrid.geojson.json").then(function (states) {
         console.log(data);
-        var width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
-            height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-        // console.log("w: "+width+" h: "+height);
 
-        var svg = d3.select("body")
-            .append("svg")
-        svg.attr("viewBox", "10 10 " + 800 + " " +400)
-            .attr("preserveAspectRatio", "xMinYMin");
-
-        var map = svg.append("g")
-            .attr("class", "map");
+        var svg = d3.select("#dataViz"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
 
         // geoMercator projection
         var projection = d3.geoMercator()
-            .scale(350)
-            .translate([width/1.5, height / 1.5]);
+            .scale(600)
+            .translate([1500, 720]);
 
         // geoPath projection
         var path = d3.geoPath().projection(projection);
@@ -61,8 +54,8 @@ d3.dsv(',','data.csv',function(d){
         var color = d3.scaleLinear()
             .domain([minVal, maxVal])
             .range(["#a972e0", "#781008"]);
-         // // Create Map
-        map.append("g")
+        // Create Map
+        svg.append("g")
             .selectAll("path")
             .data(states.features)
             .enter()
@@ -106,7 +99,7 @@ d3.dsv(',','data.csv',function(d){
                 });
 
          // Add the labels
-        map.append("g")
+        svg.append("g")
             .selectAll("labels")
             .data(states.features)
             .enter()
@@ -123,7 +116,7 @@ d3.dsv(',','data.csv',function(d){
             .attr("text-anchor", "middle")
             .attr("pointer-events", "none")
             .attr("alignment-baseline", "central")
-            .style("font-size", 11)
+            .style("font-size", 18)
             .style("fill", "white")
     });
 });
