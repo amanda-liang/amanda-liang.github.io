@@ -9,4 +9,3 @@ https://covid.cdc.gov/covid-data-tracker/#cases_casesper100klast7days
 
 Sources used as reference for this project's code:
 https://www.d3-graph-gallery.com/graph/hexbinmap_geo_label.html
-https://github.com/viswesh/Maps/blob/master/chapter1/src/js/main.js
